@@ -1,0 +1,147 @@
+
+/* Universal selector: Resets default margin, padding, and sets box sizing */
+/* Why?: Prevents browser defaults from messing up element alignment and sizes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page Body Styling */
+/* What it does: Centers chat container box in middle of screen with dark gradient background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #111119);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+/* Main Chat Container Window */
+/* What it does: Sets fixed dimensions, background color, rounded corners, and shadow for container */
+.chat-container {
+    width: 90%;
+    max-width: 500px;
+    height: 600px;
+    background-color: #252538;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Header Section Styling */
+/* What it does: Styles title header bar at top of chat container */
+.chat-header {
+    background-color: #2f2f48;
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #3b3b5c;
+}
+
+.chat-header h2 {
+    font-size: 20px;
+    color: #4da6ff;
+    margin-bottom: 4px;
+}
+
+.chat-header p {
+    font-size: 12px;
+    color: #a0a0c0;
+}
+
+/* Chat Message Window Area */
+/* What it does: Flex-1 takes all remaining vertical height, allows scrolling when messages overflow */
+.chat-box {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Generic Message Row Container */
+.message {
+    display: flex;
+    width: 100%;
+}
+
+/* Paragraph Text Inside Chat Bubbles */
+/* What it does: Creates rounded message bubble box around text */
+.message p {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+/* User Message Alignment & Color (Blue background, aligned right) */
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.user p {
+    background-color: #007bff;
+    color: #ffffff;
+    border-bottom-right-radius: 2px;
+}
+
+/* Bot Message Alignment & Color (Dark grey background, aligned left) */
+.message.bot {
+    justify-content: flex-start;
+}
+
+.message.bot p {
+    background-color: #383854;
+    color: #e0e0e0;
+    border-bottom-left-radius: 2px;
+}
+
+/* Input Area Row (Contains input field and send button) */
+.input-container {
+    display: flex;
+    padding: 14px;
+    background-color: #2f2f48;
+    border-top: 1px solid #3b3b5c;
+    gap: 10px;
+}
+
+/* Text Input Box Field */
+.input-container input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #4a4a6e;
+    border-radius: 24px;
+    outline: none;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+/* Input Placeholder Text Styling */
+.input-container input::placeholder {
+    color: #8888aa;
+}
+
+/* Send Button Styling */
+.input-container button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Send Button Hover Effect */
+.input-container button:hover {
+    background-color: #0056b3;
+}

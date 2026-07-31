@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner AI Chatbot</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main container box for the chatbot UI component -->
+    <div class="chat-container">
+
+        <!-- Top header section containing chatbot title and description -->
+        <div class="chat-header">
+            <h2>AI Assistant 🤖</h2>
+            <p>Built with HTML, CSS, JS & NVIDIA AI API</p>
+        </div>
+
+        <!-- Chat history display area where chat bubbles are dynamically added -->
+        <!-- 'id="chatBox"' is used by JavaScript to target and append new message bubbles -->
+        <div id="chatBox" class="chat-box">
+            <!-- Initial welcome message bubble from bot -->
+            <div class="message bot">
+                <p>Hello! I am your AI chatbot. Type a message below to talk to me!</p>
+            </div>
+        </div>
+
+        <!-- Bottom container section holding user input box and send button -->
+        <div class="input-container">
+            <!-- Text input field where user types their message -->
+            <!-- 'id="userInput"' is used by JavaScript to read typed text -->
+            <input type="text" id="userInput" placeholder="Type your message...">
+
+            <!-- Send button element -->
+            <!-- 'id="sendBtn"' is used by JavaScript to listen for click events -->
+            <button id="sendBtn">Send</button>
+        </div>
+
+    </div>
+
+    <!-- Links JavaScript file at bottom of body so HTML elements load before script runs -->
+    <script src="script.js"></script>
+</body>
+</html>
