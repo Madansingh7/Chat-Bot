@@ -4,7 +4,7 @@
 // Local Node.js backend server URL.
 // Why needed: API Key is hidden inside Node.js server (.env file) so browser users cannot see it.
 // What it does: Points to our local backend server running at port 3000.
-const API_URL = "http://localhost:3000/api/chat";
+const API_URL = "https://chat-bot-up5q.onrender.com/api/chat";
 
 
 // 2. DOM SELECTION (GETTING HTML ELEMENTS)
