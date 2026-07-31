@@ -1,6 +1,7 @@
+//NOTE COMMENTS ARE REFINED BY AI 
+
 
 // 1. CONFIGURATION & CONSTANTS
-// ------------------------------------------
 // Local Node.js backend server URL.
 // Why needed: API Key is hidden inside Node.js server (.env file) so browser users cannot see it.
 // What it does: Points to our local backend server running at port 3000.
@@ -8,7 +9,6 @@ const API_URL = "https://chat-bot-up5q.onrender.com/api/chat";
 
 
 // 2. DOM SELECTION (GETTING HTML ELEMENTS)
-// ------------------------------------------
 // document.getElementById() locates an HTML element using its unique 'id' attribute.
 // Why needed: Allows JavaScript to interact with webpage elements (read text, click buttons, modify DOM).
 
@@ -23,7 +23,7 @@ const sendBtn = document.getElementById("sendBtn");
 
 
 // HELPER FUNCTION TO FORMAT BOLD TEXT (**text** -> <b>text</b>)
-// ------------------------------------------
+
 // Why needed: AI models format bold words using markdown double asterisks like **bold text**.
 // What it does: Replaces double asterisks with <b> HTML bold tags so text renders bold on screen.
 // Internal operation: Uses String.replace() with regex to find text wrapped between ** and **.
@@ -33,7 +33,7 @@ function formatBoldText(text) {
 
 
 // 3. FUNCTION TO DYNAMICALLY CREATE AND DISPLAY CHAT BUBBLES
-// ------------------------------------------
+
 // Why needed: Creates new chat messages dynamically on the screen without re-loading the webpage.
 // What it does: Uses createElement() to create HTML nodes, sets text content, and appends them to chatBox.
 // Parameters:
@@ -76,7 +76,7 @@ function addMessage(text, sender) {
 
 
 // 4. FUNCTION TO SEND MESSAGE TO LOCAL NODE.JS BACKEND USING FETCH
-// ------------------------------------------
+
 // Why needed: Sends user prompt to our Node.js server (which safely attaches hidden API key).
 // 'async' keyword: Enables asynchronous execution so fetch() can wait for response without freezing browser UI.
 async function fetchAIResponse(userMessage) {
@@ -112,7 +112,7 @@ async function fetchAIResponse(userMessage) {
 
 
 // 5. MAIN CONTROLLER FUNCTION (HANDLES SENDING MESSAGES)
-// ------------------------------------------
+
 // Why needed: Connects step 1 through step 10 by coordinating input reading, UI creation, API call, and error handling.
 async function handleSendMessage() {
 
@@ -154,7 +154,7 @@ async function handleSendMessage() {
 
 
 // 6. EVENT LISTENERS (USER INTERACTION HANDLERS)
-// ------------------------------------------
+
 // Why needed: Tells browser to execute handleSendMessage function whenever user interacts with button or keyboard.
 
 // Listen for mouse click event on Send button
