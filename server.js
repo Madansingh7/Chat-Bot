@@ -44,7 +44,7 @@ app.post("/api/chat", async (req, res) => {
 
         // Step C: Prepare payload object for NVIDIA API
         const payload = {
-            model: "nvidia/nemotron-3.5-bolt-e4b",
+            model: "stg/nvidia/nemotron-3.5-bolt-e4b",
             messages: [
             {
                   role: "user",
