@@ -16,7 +16,7 @@ require("dotenv").config();
 
 // 2. INITIALIZE EXPRESS APPLICATION & PORT
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 // 3. MIDDLEWARE SETUP
@@ -44,17 +44,22 @@ app.post("/api/chat", async (req, res) => {
 
         // Step C: Prepare payload object for NVIDIA API
         const payload = {
-            model: "nvidia/nemotron-3-super-120b-a12b",
+            model: "nvidia/nemotron-3.5-bolt-e4b",
             messages: [
-                {
-                    role: "user",
-                    content: userMessage
-                }
+            {
+                  role: "user",
+                content: userMessage
+            }
             ],
-            temperature: 0.7,
-            max_tokens: 1024
-        };
-
+            temperature: 1,
+            top_p: 0.95,
+            max_tokens: 1024,
+            stream: false,
+            chat_template_kwargs: {
+                enable_thinking: true
+                }
+            };
+        
         // Step D: Call NVIDIA API from backend server (API key is hidden here!)
         const response = await fetch("https://integrate.api.nvidia.com/v1/chat/completions", {
             method: "POST",
@@ -67,7 +72,15 @@ app.post("/api/chat", async (req, res) => {
 
         // Handle unsuccessful API response from NVIDIA
         if (!response.ok) {
-            throw new Error("NVIDIA API returned status: " + response.status);
+                const errorDetails = await response.text();
+
+                console.error("NVIDIA API Status:", response.status);
+                console.error("NVIDIA API Details:", errorDetails);
+
+                return res.status(response.status).json({
+                error: "NVIDIA API request failed",
+                details: errorDetails
+                });
         }
 
         // Step E: Convert response stream to JSON object
